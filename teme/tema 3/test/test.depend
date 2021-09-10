@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1607435142 source:c:\users\allex\onedrive\desktop\info\teme\tema 3\test\main.cpp
+	<iostream>
+	<list>
+	<stdlib.h>
+	<algorithm>
+

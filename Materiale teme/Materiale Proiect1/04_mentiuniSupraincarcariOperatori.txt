@@ -1,0 +1,20 @@
+In C++ avem operatori care nu pot fi supraincarcati precum:
+1. operatorul "." (accesarea unui membru, operatorul "punct")
+2. operatorul "? :" (ternar / conditional operator)
+3. operatorul "::" (operator de rezolutie)
+4. operatorul ".*" (pointer to member)
+5. sizeof
+6. typeid
+Nu pot fi supraincarcati conform limbajului (iar daca am fi putut, ar fi provocat probleme serioase de programare).
+De exemplu, operatorul sizeof returneaza dimensiunea obiectului. Este evaluat de compilator.
+																	
+Exista operatori care pot fi supraincarcati doar ca functii membre (ca metode, nu pot fi declarati ca functii friend): operatorul =, ( ), [ ], ->. (din limbaj)
+
+Supraincarcarea operatorilor de comparare se face printr-o functie de tip bool si nu de tipul obiectului. In urma compararii avem un raspuns de tip true sau false asupra obiectelor comparate. (Ex: if a==b true, else, false).
+Supraincarcarea operatorilor de comparare poate fi realizata atat prin functii membru (care au un singur parametru) cat si prin functii non-membru (friend function).
+Exemplu:
+bool operator>(carte& z1){return (this->rating>z1.rating);}
+								
+friend bool operator>(const carte& z1, const carte& z2){return (z1.rating>z2.rating);}
+
+Se foloseste const pentru a promite compilatorului ca nu se produc modificari asupra obiectelor de comparat in timpul procesului de comparare.
